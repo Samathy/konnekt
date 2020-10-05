@@ -18,9 +18,21 @@ public:
 
   vertex(std::vector<std::string> labels) {}
 
-  void addLabel(const std::string label) {}
+  /** Add a label to this vertex. Vertices can have many labels */
+  void addLabel(const std::string label) { this->labels.push_back(label); }
 
-  bool hasLabel(const std::string toFind) { return false; }
+  /** Check if this vertex has a given label
+   * Returns true if found
+   * Returns false if non-existant
+   */
+  bool hasLabel(const std::string toFind) {
+
+    auto l = std::find(this->labels.begin(), this->labels.end(), toFind);
+    if (l != this->labels.end())
+      return true;
+
+    return false;
+  }
 
 private:
   std::vector<std::string> labels;
