@@ -2,4 +2,5 @@
 catch2/2.13.1
 
 [generators]
-cmake
+cmake_find_package
+cmake_paths
