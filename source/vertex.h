@@ -27,7 +27,16 @@ public:
    */
   bool removeLabel ( const std::string label )
   {
+    if (!this->labels.size()) //dont even bother searching if we have no labels
+        return false;
 
+    auto l = std::find(this->labels.begin(), this->labels.end(), label);
+    if (l != this->labels.end()) {
+        this->labels.erase(l);
+        return true;
+    }
+
+    return false;
   }
 
   /** Check if this vertex has a given label
