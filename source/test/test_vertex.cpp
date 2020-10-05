@@ -19,7 +19,25 @@ TEST_CASE ("test_remove_vertex_label")
     
     REQUIRE(v.hasLabel("Testing"));
 
-    v.removeLabel("Testing");
+    REQUIRE(v.removeLabel("Testing"));
 
     REQUIRE_FALSE(v.hasLabel("Testing"));
+}
+
+TEST_CASE ("test_remove_false_when_no_labels")
+{
+    vertex v = vertex();
+
+    REQUIRE_FALSE(v.removeLabel("Testing"));
+}
+
+TEST_CASE ("test_remove_non_existant_label")
+{
+    vertex v = vertex();
+
+    v.addLabel("Testing");
+    
+    REQUIRE(v.hasLabel("Testing"));
+
+    REQUIRE_FALSE(v.removeLabel("Schmesting"));
 }
