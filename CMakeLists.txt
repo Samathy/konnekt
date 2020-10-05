@@ -13,7 +13,7 @@ find_package(Catch2 REQUIRED)
 enable_testing()
 
 add_executable(konnekt source/konnekt.cpp)
-add_executable(tests source/test/test_main.cpp)
+add_executable(tests source/test/test_main.cpp source/test/test_vertex.cpp)
 target_link_libraries(konnekt ${CONAN_LIBS})
 
 target_link_libraries(tests Catch2::Catch2 ${CONAN_LIBS})
