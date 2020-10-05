@@ -21,6 +21,15 @@ public:
   /** Add a label to this vertex. Vertices can have many labels */
   void addLabel(const std::string label) { this->labels.push_back(label); }
 
+  /** Remove given label from this vertex.
+   * Return true if successful.
+   * Return false if not found
+   */
+  bool removeLabel ( const std::string label )
+  {
+
+  }
+
   /** Check if this vertex has a given label
    * Returns true if found
    * Returns false if non-existant
