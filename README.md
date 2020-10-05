@@ -26,6 +26,11 @@ Documentation is available in the docs directory.
  2) cmake --build .
 
 ## Testing
+Testing is implemented with [Catch2](https://github.com/catchorg/catch2)
+
+ 1) cd build
+ 2) cmake --build .
+ 3) ctest
 
 ## Usage
 
