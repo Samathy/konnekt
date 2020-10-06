@@ -17,7 +17,7 @@ TEST_CASE("test_label_constructors")
     REQUIRE(v->hasLabel("Testing1"));
     delete v;
 
-    std::string labels[2] = {"Testing1", "Testing2"};
+    std::vector<std::string> labels = {"Testing1", "Testing2"};
     v = new vertex(labels);
 
     REQUIRE(v->hasLabel("Testing1"));

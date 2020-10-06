@@ -14,9 +14,16 @@ class vertex {
 public:
   vertex() {}
 
-  vertex(std::string label) {}
+  /** Construct with one label*/
+  vertex(std::string label) {
+      this->labels.push_back(label);
+  }
 
-  vertex(std::string labels[]) {}
+  /** Construct with many labels */
+  vertex(std::vector<std::string> labels) {
+      //This could be a move, instead of a copy. idk if that'd improve  memory usage for large lists of labels
+      this->labels.insert(this->labels.end(), labels.begin(), labels.end());
+  }
 
   /** Add a label to this vertex. Vertices can have many labels */
   void addLabel(const std::string label) { this->labels.push_back(label); }
