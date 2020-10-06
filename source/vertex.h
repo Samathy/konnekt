@@ -15,14 +15,13 @@ public:
   vertex() {}
 
   /** Construct with one label*/
-  vertex(std::string label) {
-      this->labels.push_back(label);
-  }
+  vertex(std::string label) { this->labels.push_back(label); }
 
   /** Construct with many labels */
   vertex(std::vector<std::string> labels) {
-      //This could be a move, instead of a copy. idk if that'd improve  memory usage for large lists of labels
-      this->labels.insert(this->labels.end(), labels.begin(), labels.end());
+    // This could be a move, instead of a copy. idk if that'd improve  memory
+    // usage for large lists of labels
+    this->labels.insert(this->labels.end(), labels.begin(), labels.end());
   }
 
   /** Add a label to this vertex. Vertices can have many labels */
@@ -32,15 +31,14 @@ public:
    * Return true if successful.
    * Return false if not found
    */
-  bool removeLabel ( const std::string label )
-  {
-    if (!this->labels.size()) //dont even bother searching if we have no labels
-        return false;
+  bool removeLabel(const std::string label) {
+    if (!this->labels.size()) // dont even bother searching if we have no labels
+      return false;
 
     auto l = std::find(this->labels.begin(), this->labels.end(), label);
     if (l != this->labels.end()) {
-        this->labels.erase(l);
-        return true;
+      this->labels.erase(l);
+      return true;
     }
 
     return false;
