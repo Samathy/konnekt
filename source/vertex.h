@@ -16,7 +16,7 @@ public:
 
   vertex(std::string label) {}
 
-  vertex(std::vector<std::string> labels) {}
+  vertex(std::string labels[]) {}
 
   /** Add a label to this vertex. Vertices can have many labels */
   void addLabel(const std::string label) { this->labels.push_back(label); }

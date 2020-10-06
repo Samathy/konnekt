@@ -11,6 +11,21 @@ TEST_CASE("test_set_vertex_label")
     REQUIRE(v.hasLabel("Testing"));
 }
 
+TEST_CASE("test_label_constructors")
+{
+    vertex * v = new vertex("Testing1");
+    REQUIRE(v->hasLabel("Testing1"));
+    delete v;
+
+    std::string labels[2] = {"Testing1", "Testing2"};
+    v = new vertex(labels);
+
+    REQUIRE(v->hasLabel("Testing1"));
+    REQUIRE(v->hasLabel("Testing2"));
+
+    delete v;
+}
+
 TEST_CASE ("test_remove_vertex_label")
 {
     vertex v = vertex();
