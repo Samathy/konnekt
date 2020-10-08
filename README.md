@@ -17,7 +17,7 @@ Documentation is available in the docs directory.
 
 ### Prep
  1) cd build
- 2) conan install ..
+ 2) conan install .. --build=jsoncpp
  3) cmake ..
 
 ### Build

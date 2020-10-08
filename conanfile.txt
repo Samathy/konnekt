@@ -1,5 +1,6 @@
 [requires]
 catch2/2.13.1
+jsoncpp/1.9.4
 
 [generators]
 cmake_find_package
