@@ -2,8 +2,8 @@
 #include <string_view>
 #include <vector>
 
-#include "edge.h"
 #include "vertex.h"
+#include "edge.h"
 
 class graph {
 public:
@@ -14,6 +14,7 @@ public:
    */
   std::shared_ptr<vertex> createVertex() {
     std::shared_ptr<vertex> ret(new vertex());
+    this->vertices.push_back(ret);
     return ret;
   }
 

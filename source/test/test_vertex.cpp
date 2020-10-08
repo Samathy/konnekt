@@ -1,7 +1,7 @@
 #include "catch2/catch.hpp"
 
-#include "../edge.h"
 #include "../vertex.h"
+#include "../edge.h"
 
 TEST_CASE("test_set_vertex_label")
 {

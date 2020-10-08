@@ -1,7 +1,6 @@
 #include <memory>
 
 class vertex;
-
 /** Edge class
  * Represents an edge of the graph.
  * Basically only contains pointers to the edge's connected vertices.
