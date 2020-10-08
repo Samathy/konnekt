@@ -20,9 +20,9 @@ public:
   /** Create a new edge connected to given vertices
    * Returns: A shared pointer to the new edge
    */
-  std::shared_ptr<vertex> createEdge(std::shared_ptr<vertex> v1,
-                                     std::shared_ptr<vertex> v2) {
-    std::shared_ptr<vertex> ret(new vertex());
+  std::shared_ptr<edge> createEdge(std::shared_ptr<vertex> v1,
+                                   std::shared_ptr<vertex> v2) {
+    std::shared_ptr<edge> ret(new edge(v1, v2));
     return ret;
   }
 
@@ -33,6 +33,18 @@ public:
   std::vector<std::shared_ptr<vertex>> findVertex(std::string label) {
     std::shared_ptr<vertex> v(new vertex());
     std::vector<std::shared_ptr<vertex>> ret = {v};
+    return ret;
+  }
+
+  /** Find an edge between two given vertices
+   * Returns a list of edges that exist between two verticies.
+   * It is unlikely that there will be more than one edge.
+   */
+  std::vector<std::shared_ptr<edge>> findEdges(std::shared_ptr<vertex> v1,
+                                               std::shared_ptr<vertex> v2) {
+    std::shared_ptr<edge> e(new edge(v1, v2));
+    std::vector<std::shared_ptr<edge>> ret;
+    ret.push_back(e);
     return ret;
   }
 

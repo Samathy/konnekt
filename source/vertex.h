@@ -2,6 +2,8 @@
 #include <string>
 #include <vector>
 
+class edge;
+
 /** Vertex class
  * Represents a vertex/node on the graph.
  * Nodes may have one or more labels, which can be set, removed and retrieved.
@@ -57,6 +59,18 @@ public:
     return false;
   }
 
+  void addEdge(std::shared_ptr<edge> e) { this->edges.push_back(e); }
+
+  size_t countEdges() { return this->edges.size(); }
+
+  const std::vector<std::shared_ptr<edge>> getEdges() const {
+    // Does copying the list of shared pointers take a lot of time/memory?
+    // Would it be better to return const pointer to the vector instead of a
+    // const copy?
+    return this->edges;
+  }
+
 private:
   std::vector<std::string> labels;
+  std::vector<std::shared_ptr<edge>> edges;
 };

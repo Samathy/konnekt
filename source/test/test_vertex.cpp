@@ -1,4 +1,6 @@
 #include "catch2/catch.hpp"
+
+#include "../edge.h"
 #include "../vertex.h"
 
 TEST_CASE("test_set_vertex_label")
