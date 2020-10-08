@@ -1,0 +1,17 @@
+{
+    "verticies":[
+        {
+            "label":"Testing"
+        },
+        {
+            "label":"Testing2"
+        }
+    ],
+    "edges": [
+        {
+            "v1":"Testing",
+            "v2":"Testing2"
+        }
+    ]
+}
+

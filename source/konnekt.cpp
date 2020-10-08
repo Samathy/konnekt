@@ -1,4 +1,7 @@
+#include "ingest.h"
+
 int main()
 {
-    return 0;
+    std::unique_ptr<graph>  g;
+    g = ingest_json("example1.json");
 }

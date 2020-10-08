@@ -80,9 +80,11 @@ public:
 private:
   /* Using vectors is probably not great for searching for a given vertex or
    * edge to delete things, or start a search from from a vertex to another one.
-   * Perhaps vertices should have an ID, and we should store them in a tree,
+   * Perhaps vertices should have an ID, and we should store them in a tree, 
    * or a hash-map or something like that. Has to be able to cope with vertexs
-   * being removed though. Optimise later maybe.
+   * being removed though. 
+   * We could do a whole adjacency matrix thing with enough time, and no need to delete verticies.
+   * Optimise later maybe.
    */
   std::vector<std::shared_ptr<vertex>> vertices;
   std::vector<std::shared_ptr<edge>> edges;
