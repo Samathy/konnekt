@@ -3,14 +3,17 @@
 #include "../graph.h"
 
 
-TEST_CASE("test_add_vertex")
+TEST_CASE("test_create_vertex")
 {
 
     graph g = graph();
 
     auto v = g.createVertex();
+    v->addLabel("Testing");
 
     REQUIRE(g.size() == 1);
+
+    REQUIRE(g.findVertex("Testing")[0] == v);
 
 }
 
@@ -28,11 +31,10 @@ TEST_CASE("test_find_vertex")
     
     //They should be the same shared pointer.
     REQUIRE(v == found[0]);
-
 }
 
 
-TEST_CASE("test_add_edge")
+TEST_CASE("test_create_edge")
 {
     graph g = graph();
 
@@ -45,7 +47,7 @@ TEST_CASE("test_add_edge")
     auto e = g.createEdge(v, v1);
 
     REQUIRE(v->getEdges().size() == 1);
-    REQUIRE(v1->getEdges().size() == 2);
+    REQUIRE(v1->getEdges().size() == 1);
 
     REQUIRE(v->getEdges()[0] == e);
     REQUIRE(v1->getEdges()[0] == e);
