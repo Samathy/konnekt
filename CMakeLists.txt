@@ -14,7 +14,7 @@ find_package(jsoncpp REQUIRED)
 enable_testing()
 
 add_executable(konnekt source/konnekt.cpp)
-add_executable(tests source/test/test_main.cpp source/test/test_vertex.cpp source/test/test_graph.cpp)
+add_executable(tests source/test/test_main.cpp source/test/test_vertex.cpp source/test/test_graph.cpp source/test/test_edge.cpp)
 
 target_link_libraries(konnekt ${CONAN_LIBS})
 target_link_libraries(konnekt jsoncpp)
