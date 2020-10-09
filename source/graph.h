@@ -2,6 +2,7 @@
 #include <memory>
 #include <string_view>
 #include <vector>
+#include <sstream>
 
 #include "edge.h"
 #include "vertex.h"
@@ -74,7 +75,31 @@ public:
   /** Generates a dot graph of the stored graph.
    * This has to walk the graph, and can be very expensive on large graphs.
    */
-  std::string_view getDot() { return std::string_view(this->dot); }
+  std::string_view getDot() { 
+
+  std::stringstream ss;
+
+    if (this->dot.empty())
+    {
+        ss << "graph { " << std::endl;
+        std::for_each(this->edges.begin(), this->edges.end(),
+                [&ss](std::shared_ptr<edge> e)
+                { 
+                    std::shared_ptr<vertex> v1(e->getV1());
+                    std::shared_ptr<vertex> v2(e->getV2());
+
+                    ss << v1->getID() << "[style=dashed, label=\"" << v1->getID() << ":" << v1->getLabelsAsString() << "\"];" << std::endl;
+                    ss << v2->getID() << "[style=dashed, label=\"" << v2->getID() << ":" <<v2->getLabelsAsString() << "\"];" << std::endl;
+                    ss << v1->getID()  << " -- " << v2->getID() << ";" << std::endl;
+                });
+
+        ss << "}";
+
+        this->dot = ss.str();
+    }
+
+    return this->dot;
+  }
 
   size_t size() { return this->vertices.size(); }
 
