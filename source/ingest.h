@@ -46,7 +46,7 @@ std::unique_ptr<graph> ingest_json(std::string filename)
 
     Json::Value root = parseJson(filename);
 
-    Json::Value vertices = root["verticies"];
+    Json::Value vertices = root["vertices"];
     Json::Value edges = root["edges"];
 
     if (vertices)
