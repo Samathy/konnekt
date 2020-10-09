@@ -72,7 +72,7 @@ std::unique_ptr<graph> ingest_json(std::string filename)
         for ( i = 0; i < edges.size(); i++)
         {
             std::vector<std::shared_ptr<vertex>> v1(ret->findVertex(edges[i]["v1"].asString()));
-            std::vector<std::shared_ptr<vertex>> v2(ret->findVertex(edges[i]["v1"].asString()));
+            std::vector<std::shared_ptr<vertex>> v2(ret->findVertex(edges[i]["v2"].asString()));
 
             if (v1.size() == 0 || v2.size() == 0 )
             {
