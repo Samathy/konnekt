@@ -99,9 +99,35 @@ public:
     return this->edges;
   }
 
+  void dijkstraSetVisited()
+  {
+      this->visited = true;
+  }
+
+  void dijkstraSetDistance(int distance)
+  {
+      this->distance = distance;
+  }
+
+  const int dijkstraGetDistance()
+  {
+      return this->distance;
+  }
+
+  /** Reset shortest-path related variables back to defaults.
+   */
+  void dijkstraReset()
+  {
+      this->visited = false;
+      this->distance = -1;
+  }
+
 private:
   std::vector<std::string> labels;
   std::vector<std::shared_ptr<edge>> edges;
 
   int id;
+
+  int distance = -1;
+  bool visited = false;
 };

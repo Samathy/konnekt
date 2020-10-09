@@ -105,3 +105,36 @@ TEST_CASE("test_generate_dot_graph")
 
     REQUIRE(dot == dot_expected);
 }
+
+TEST_CASE("test_dijkstra")
+{
+    graph g = graph();
+
+    auto v = g.createVertex();
+    v->addLabel("Testing");
+
+    auto v1 = g.createVertex();
+    v1->addLabel("Testing1");
+
+    auto v2 = g.createVertex();
+    v1->addLabel("Testing2");
+
+    auto v3 = g.createVertex();
+    v1->addLabel("Testing3");
+
+    g.createEdge(v, v1);
+    g.createEdge(v1, v3);
+
+    g.createEdge(v, v1);
+    g.createEdge(v1, v2);
+    g.createEdge(v2, v3);
+
+    auto path = g.shortest_path(v, v3);
+    
+    std::vector<std::shared_ptr<vertex>> shortest_path_expected;
+    shortest_path_expected.push_back(v);
+    shortest_path_expected.push_back(v1);
+    shortest_path_expected.push_back(v3);
+
+    REQUIRE(path.vertices == shortest_path_expected);
+}

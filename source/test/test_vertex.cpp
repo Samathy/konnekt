@@ -88,4 +88,19 @@ TEST_CASE("test_get_id")
     REQUIRE(v.getID() == 10);
 }
 
+TEST_CASE("test_get_no_edges")
+{
+    vertex v = vertex(10);
+    REQUIRE(v.getEdges().size() == 0);
+}
 
+TEST_CASE("test_get_edges")
+{
+    std::shared_ptr<vertex> v(new vertex(10));
+    std::shared_ptr<vertex> v1(new vertex(20));
+
+    v->addEdge(std::make_shared<edge>(v, v1));
+    
+    std::vector<std::shared_ptr<edge>> e = v->getEdges();
+    REQUIRE(e.size() == 1);
+}
