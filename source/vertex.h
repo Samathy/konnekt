@@ -1,4 +1,5 @@
 #include <algorithm>
+#include <sstream>
 #include <string>
 #include <vector>
 #include <sstream>
@@ -15,9 +16,12 @@ class edge;
 class vertex {
 
 public:
-  vertex() {}
+  vertex() { this->edges = {}, this->labels = {}; }
 
-  vertex(int id) { this->id = id; }
+  vertex(int id) {
+    this->id = id;
+    this->edges = {}, this->labels = {};
+  }
 
   /** Construct with one label*/
   vertex(std::string label) { this->labels.push_back(label); }
@@ -65,30 +69,19 @@ public:
   void addEdge(std::shared_ptr<edge> e) { this->edges.push_back(e); }
 
   /** Get all labels attached to this vertex */
-  const std::vector<std::string> getLabels()
-  {
-      return this->labels;
-  }
+  const std::vector<std::string> getLabels() { return this->labels; }
 
-  const int getID()
-  {
-      return this->id;
-  }
+  const int getID() { return this->id; }
 
   /** Return this vertex's labels as a string */
-  const std::string getLabelsAsString()
-  {
+  const std::string getLabelsAsString() {
     std::stringstream ss;
     ss << "<";
     std::for_each(this->labels.begin(), this->labels.end(),
-            [&ss](std::string l)
-            {
-                ss << l << ", ";
-            });
+                  [&ss](std::string l) { ss << l << ", "; });
     ss << ">";
     return ss.str();
   }
-
 
   size_t countEdges() { return this->edges.size(); }
 
@@ -99,27 +92,19 @@ public:
     return this->edges;
   }
 
-  void dijkstraSetVisited()
-  {
-      this->visited = true;
-  }
+  void dijkstraSetVisited() { this->visited = true; }
 
-  void dijkstraSetDistance(int distance)
-  {
-      this->distance = distance;
-  }
+  bool dijkstraGetVisited() { return this->visited; }
 
-  const int dijkstraGetDistance()
-  {
-      return this->distance;
-  }
+  void dijkstraSetDistance(int distance) { this->distance = distance; }
+
+  const int dijkstraGetDistance() { return this->distance; }
 
   /** Reset shortest-path related variables back to defaults.
    */
-  void dijkstraReset()
-  {
-      this->visited = false;
-      this->distance = -1;
+  void dijkstraReset() {
+    this->visited = false;
+    this->distance = -1;
   }
 
 private:

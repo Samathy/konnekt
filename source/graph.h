@@ -1,6 +1,7 @@
 #include <algorithm>
 #include <memory>
 #include <sstream>
+#include <stdexcept>
 #include <string_view>
 #include <vector>
 
@@ -45,6 +46,10 @@ public:
    */
   std::shared_ptr<edge> createEdge(std::shared_ptr<vertex> v1,
                                    std::shared_ptr<vertex> v2) {
+    if (v1 == v2)
+      throw std::runtime_error(
+          "Cannot have a vertex with an edge pointing to itself");
+
     std::shared_ptr<edge> ret(new edge(v1, v2));
     this->edges.push_back(ret);
 
@@ -126,6 +131,7 @@ public:
    * Returns a 'dijkstra_result' object */
   const dijkstra_result shortest_path(std::shared_ptr<vertex> v1,
                                       std::shared_ptr<vertex> v2) {
+
     // Reset any dijkstra related labels on the vertices
     std::for_each(this->vertices.begin(), this->vertices.end(),
                   [](std::shared_ptr<vertex> v) { v->dijkstraReset(); });
@@ -136,7 +142,6 @@ public:
     v1->dijkstraSetDistance(0);
 
     std::shared_ptr<vertex> current_vertex = v1;
-    int current_vertex_i = 0;
 
     bool complete = false;
 
@@ -149,47 +154,57 @@ public:
         break;
       }
 
+      if (current_vertex == v1 && visited.size() > 0) {
+        complete = false;
+        break;
+      }
+
+      if (current_vertex->countEdges() == 0) {
+        break; // No more edges from here. Can't continue.
+      }
+
       std::vector<std::shared_ptr<edge>> current_edges =
           current_vertex->getEdges();
-    
-      if ( current_edges.size() == 0)
-      {
-          continue;
-      }
 
       for (auto &edge : current_edges) {
         std::shared_ptr<vertex> other_vertex = edge->getOther(current_vertex);
-        if (other_vertex->dijkstraGetDistance() <
-            current_vertex->dijkstraGetDistance())
+        if (other_vertex->dijkstraGetVisited())
+          continue;
+        else if (other_vertex->dijkstraGetDistance() <
+                 current_vertex->dijkstraGetDistance()) {
+          std::cout << other_vertex->getLabelsAsString()
+                    << " Has a smaller distance than we do. Incrementing it's "
+                       "distance"
+                    << std::endl;
           other_vertex->dijkstraSetDistance(
-              other_vertex->dijkstraGetDistance() +
-              current_vertex->dijkstraGetDistance());
+              current_vertex->dijkstraGetDistance() + 1);
+        }
       }
 
       auto it = std::find(unvisited.begin(), unvisited.end(), current_vertex);
 
-      // explode here if the vertex isnt in unvisited!
-      unvisited.erase(it);
       current_vertex->dijkstraSetVisited();
+      std::shared_ptr<vertex> next_vertex(
+          this->find_next_vertex(current_vertex, v2, v1, visited));
+
+      std::cout << "Removing " << current_vertex->getLabelsAsString()
+                << " from the unvisited list" << std::endl;
+      unvisited.erase(it);
       visited.push_back(current_vertex);
 
-      int smallest_distance = 0;
-      std::shared_ptr<vertex> next_vertex;
+      if (next_vertex.get() == nullptr || next_vertex == v1) {
 
-      for (auto &edge : current_edges) {
-        std::shared_ptr<vertex> other_vertex = edge->getOther(current_vertex);
-        if (other_vertex->dijkstraGetDistance() < smallest_distance)
-        {
-          smallest_distance = other_vertex->dijkstraGetDistance();
-          next_vertex = other_vertex;
-        }
-
+        std::cout << "Could not find another node to go to" << std::endl;
+        complete = false;
+        break;
+      } else {
+        std::cout << next_vertex->getLabelsAsString()
+                  << " Is being picked as the next node" << std::endl;
+        current_vertex = next_vertex;
       }
-
-      current_vertex = next_vertex;
     }
 
-    if (complete = true) {
+    if (complete == true) {
       result.v1 = v1;
       result.v2 = v2;
 
@@ -219,4 +234,53 @@ private:
   std::string dot;
 
   int idMax = 0; /** The current max ID number */
+
+  std::shared_ptr<vertex>
+  find_next_vertex(std::shared_ptr<vertex> current_vertex,
+                   std::shared_ptr<vertex> v2, std::shared_ptr<vertex> v1,
+                   std::vector<std::shared_ptr<vertex>> visited) {
+    int smallest_distance = current_vertex->getEdges()[0]
+                                ->getOther(current_vertex)
+                                ->dijkstraGetDistance();
+    std::shared_ptr<vertex> next_vertex =
+        current_vertex->getEdges()[0]->getOther(current_vertex);
+
+    std::cout << "Current node is:" << current_vertex->getLabelsAsString()
+              << std::endl;
+
+    for (auto &edge : current_vertex->getEdges()) {
+
+      std::shared_ptr<vertex> other_vertex = edge->getOther(current_vertex);
+
+      if (other_vertex->dijkstraGetVisited()) {
+        std::cout << other_vertex->getLabelsAsString()
+                  << " Has already been visited" << std::endl;
+        continue;
+      }
+      if (other_vertex == v2) {
+        std::cout << "Found v2" << std::endl;
+        next_vertex = other_vertex;
+        break;
+      }
+      std::cout << other_vertex->getLabelsAsString()
+                << "Has distance of :" << other_vertex->dijkstraGetDistance()
+                << "And smallest distance is:" << smallest_distance
+                << std::endl;
+      if (other_vertex->dijkstraGetDistance() <= smallest_distance) {
+        std::cout << other_vertex->getLabelsAsString()
+                  << " Has a smaller distance. Picking that as next node"
+                  << std::endl;
+        std::cout << other_vertex->dijkstraGetDistance() << "Is smaller than "
+                  << smallest_distance << std::endl;
+        smallest_distance = other_vertex->dijkstraGetDistance();
+        next_vertex = other_vertex;
+      }
+    }
+
+    if (next_vertex.get() == nullptr) {
+      std::cout << "Backtracking...";
+      find_next_vertex(visited.back(), v2, v1, visited);
+    }
+    return next_vertex;
+  }
 };
