@@ -78,7 +78,7 @@ TEST_CASE("test_get_labels_as_string")
     v.addLabel("Testing2");
     
     std::cout << v.getLabelsAsString();
-    REQUIRE(v.getLabelsAsString() == "[Testing, Testing2, ]");
+    REQUIRE(v.getLabelsAsString() == "<Testing, Testing2, >");
 }
 
 TEST_CASE("test_get_id")

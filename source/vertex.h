@@ -79,13 +79,13 @@ public:
   const std::string getLabelsAsString()
   {
     std::stringstream ss;
-    ss << "[";
+    ss << "<";
     std::for_each(this->labels.begin(), this->labels.end(),
             [&ss](std::string l)
             {
                 ss << l << ", ";
             });
-    ss << "]";
+    ss << ">";
     return ss.str();
   }
 
