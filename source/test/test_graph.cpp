@@ -70,3 +70,18 @@ TEST_CASE("test_find_edge")
     REQUIRE(edges.size() == 1);
     REQUIRE(edges[0] == e);
 }
+
+TEST_CASE("test_vertices_created_with_incrementing_id")
+{
+    graph g = graph();
+
+    auto v = g.createVertex();
+    v->addLabel("Testing");
+
+    auto v1 = g.createVertex();
+    v1->addLabel("Testing");
+
+    REQUIRE(v->getID() == 1);
+    REQUIRE(v1->getID() == 2);
+
+}

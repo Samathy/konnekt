@@ -1,6 +1,7 @@
 #include <algorithm>
 #include <string>
 #include <vector>
+#include <sstream>
 
 class edge;
 
@@ -15,6 +16,8 @@ class vertex {
 
 public:
   vertex() {}
+
+  vertex(int id) { this->id = id; }
 
   /** Construct with one label*/
   vertex(std::string label) { this->labels.push_back(label); }
@@ -61,6 +64,32 @@ public:
 
   void addEdge(std::shared_ptr<edge> e) { this->edges.push_back(e); }
 
+  /** Get all labels attached to this vertex */
+  const std::vector<std::string> getLabels()
+  {
+      return this->labels;
+  }
+
+  const int getID()
+  {
+      return this->id;
+  }
+
+  /** Return this vertex's labels as a string */
+  const std::string getLabelsAsString()
+  {
+    std::stringstream ss;
+    ss << "[";
+    std::for_each(this->labels.begin(), this->labels.end(),
+            [&ss](std::string l)
+            {
+                ss << l << ", ";
+            });
+    ss << "]";
+    return ss.str();
+  }
+
+
   size_t countEdges() { return this->edges.size(); }
 
   const std::vector<std::shared_ptr<edge>> getEdges() const {
@@ -73,4 +102,6 @@ public:
 private:
   std::vector<std::string> labels;
   std::vector<std::shared_ptr<edge>> edges;
+
+  int id;
 };
