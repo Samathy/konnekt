@@ -85,3 +85,23 @@ TEST_CASE("test_vertices_created_with_incrementing_id")
     REQUIRE(v1->getID() == 2);
 
 }
+
+TEST_CASE("test_generate_dot_graph")
+{
+
+    std::string dot_expected = "graph { \n1[style=dashed, label=\"1:<Testing, >\"];\n2[style=dashed, label=\"2:<Testing1, >\"];\n1 -- 2;\n}";
+
+    graph g = graph();
+
+    auto v = g.createVertex();
+    v->addLabel("Testing");
+
+    auto v1 = g.createVertex();
+    v1->addLabel("Testing1");
+
+    auto e = g.createEdge(v, v1);
+
+    std::string_view dot = g.getDot();
+
+    REQUIRE(dot == dot_expected);
+}
