@@ -14,8 +14,9 @@ public:
    * Returns: A shared pointer to the new vertex object
    */
   std::shared_ptr<vertex> createVertex() {
-    std::shared_ptr<vertex> ret(new vertex());
+    std::shared_ptr<vertex> ret(new vertex(this->idMax+1));
     this->vertices.push_back(ret);
+    this->idMax += 1;
     return ret;
   }
 
@@ -90,4 +91,6 @@ private:
   std::vector<std::shared_ptr<edge>> edges;
 
   std::string dot;
+
+  int idMax = 0; /** The current max ID number */
 };
