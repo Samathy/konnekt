@@ -25,12 +25,13 @@ Json::Value parseJson(std::string filename)
 
     Json::String errs;
 
-    if (!parseFromStream(builder, f, &root, & errs))
+    if (!parseFromStream(builder, f, &root, &errs))
     {
         std::cout << errs;
         throw "Could not parse json input";
     }
 
+    std::cout << "Parsed json input" << std::endl;    
     return root;
 }
 
@@ -44,6 +45,7 @@ std::unique_ptr<graph> ingest_json(std::string filename)
 {
     std::unique_ptr<graph> ret(new graph());
 
+    std::cout << "Parsing json..."<< std::endl;
     Json::Value root = parseJson(filename);
 
     Json::Value vertices = root["vertices"];
@@ -63,7 +65,7 @@ std::unique_ptr<graph> ingest_json(std::string filename)
                 ret->createVertex();
         }
 
-        std::cout << "Created " << i << " verticies."<< std::endl;
+        std::cout << "Created " << i << " vertices."<< std::endl;
     }
 
     if (edges)
@@ -79,7 +81,7 @@ std::unique_ptr<graph> ingest_json(std::string filename)
                 std::cout << "Cannot create edge. Could not find vertexs matching one or both labels: "<< edges[i]["v1"].asString() << ", " << edges[i]["v2"].asString();
             }
            
-            //If you've labeled multiple vertices with the same label
+            //If you've labeled multiple vertces with the same label
             //and you're trying to add edges between each pair, thats not going to work.
             //I'd be simple to change, but I'm sticking with this for now.
             ret->createEdge(v1[0], v2[0]);
