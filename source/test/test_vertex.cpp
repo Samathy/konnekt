@@ -1,4 +1,5 @@
 #include "catch2/catch.hpp"
+#include <iostream>
 
 #include "../vertex.h"
 #include "../edge.h"

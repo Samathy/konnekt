@@ -24,9 +24,10 @@ Documentation is available in the docs directory.
  * [CMake](https://cmake.org)
 
 ### Prep
- 1) cd build
- 2) conan install .. --build=jsoncpp
- 3) cmake ..
+ 1) mkdir build
+ 2) cd build
+ 3) conan install .. --build=jsoncpp
+ 4) cmake ..
 
 ### Build
 

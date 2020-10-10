@@ -4,6 +4,7 @@
 #include <stdexcept>
 #include <string_view>
 #include <vector>
+#include <iostream>
 
 #include "edge.h"
 #include "vertex.h"
