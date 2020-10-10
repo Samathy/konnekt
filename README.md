@@ -40,3 +40,39 @@ Documentation can be generated with doxygen:
 
 ## Usage
 
+    konnect [graph file]
+Injest a graph and exit
+
+    konnekt [graph file] [--shortest-path] [source node label] [destination node label]
+Find the shortest path between two nodes.
+
+    konnekt [graph file] [--dot]
+Produce a dot representation of a given graph.
+
+### Json serialisation format
+
+Konnekt can ingest graphs in a json format that looks like the following:
+
+```json
+{
+    "vertices": [
+        {
+            "label": "wibble"
+        },
+        {
+            "label": "dibble"
+        },
+        {
+            "label": ""
+        }
+    ],
+    "edges": [
+        {
+            "v1": "wibble"
+            "v2": "dibble"
+        }
+    ]
+}
+```
+
+Vertices do not have to have 
