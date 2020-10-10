@@ -55,7 +55,9 @@ std::unique_ptr<graph> ingest_json(std::string filename)
     {
         int i;
         for ( i = 0; i < vertices.size(); i++)
-        {
+        { 
+            //In future, verticies we should support ingesting
+            //vertices with multiple labels
             if (!vertices[i]["label"].asString().empty())
             {
                 ret->createVertex()->addLabel(vertices[i]["label"].asString());
@@ -81,9 +83,13 @@ std::unique_ptr<graph> ingest_json(std::string filename)
                 std::cout << "Cannot create edge. Could not find vertexs matching one or both labels: "<< edges[i]["v1"].asString() << ", " << edges[i]["v2"].asString();
             }
            
-            //If you've labeled multiple vertces with the same label
-            //and you're trying to add edges between each pair, thats not going to work.
-            //I'd be simple to change, but I'm sticking with this for now.
+            /* If you've labeled multiple vertices with the same label
+             * and you're trying to add edges between each pair, thats not going to work.
+             * I'd be simple to change, but I'm sticking with this for now.
+             *
+             * Note: The edge class doesnt allow an edge with identicle v1 and v2.
+             * So this might throw.
+             */
             ret->createEdge(v1[0], v2[0]);
         }
         std::cout << "Created " << i << " edges."<< std::endl;
