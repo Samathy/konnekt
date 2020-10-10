@@ -1,13 +1,14 @@
 #include <memory>
 
 class vertex;
+
 /** Edge class
  * Represents an edge of the graph.
  * Basically only contains pointers to the edge's connected vertices.
  */
-
 class edge {
 public:
+    /** Construct an edge. Requires the two attached vertices */
   edge(std::shared_ptr<vertex> v1, std::shared_ptr<vertex> v2) {
 
     this->v1 = v1;
@@ -25,7 +26,7 @@ public:
   const std::shared_ptr<vertex> getV2() { return this->v2; }
 
   /** Which ever vertex you pass it, you get the other one.
-   * Or we throw
+   * Or we throw.
    */
   const std::shared_ptr<vertex> getOther(std::shared_ptr<vertex> v) {
     if (v == this->v1)

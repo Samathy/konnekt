@@ -8,25 +8,35 @@
 #include "edge.h"
 #include "vertex.h"
 
-/** Class containing the results of a shortest-path check */
+/** Class containing the results of a shortest-path check.
+ *
+ *  Note: The 'edges' member is only filled if dijkstra_result.fillEdges() is called.
+ *
+ * */
 class dijkstra_result {
 public:
-  std::shared_ptr<vertex> v1;
-  std::shared_ptr<vertex> v2;
+  std::shared_ptr<vertex> v1; /** Source vertex */
+  std::shared_ptr<vertex> v2; /** Destination vertex */
 
   std::vector<std::shared_ptr<vertex>>
       vertices; // Vertices along the path in order of visitation
   std::vector<std::shared_ptr<edge>>
       edges; // Edges along the path in order of visitation
 
-  bool path_exists = false;
+  bool path_exists = false; /**< True if path exists between source and dest. False if no path exists */
 
-  /** Traceback the edges as well. This could take time and might not be a very
-   * useful operation to do all at once. You probably just want to do it lazily
+  /** Traceback the edges.
+   * *NOT IMPLEMENTED*  
+   *
+   * This could take time and might not be a very
+   * useful operation to do all at once. You probably just want to do it lazily.
+   * 
    */
   std::vector<std::shared_ptr<edge>> fillEdges() { return this->edges; }
 };
 
+/** Represents a graph in memory. Contains nodes and edges.
+ */
 class graph {
 public:
   graph() {}
@@ -96,7 +106,7 @@ public:
     return ret;
   }
 
-  /** Generates a dot graph of the stored graph.
+  /** Generates a dot/graphviz graph of the stored graph.
    * This has to walk the graph, and can be very expensive on large graphs.
    */
   std::string_view getDot() {
@@ -126,9 +136,10 @@ public:
     return this->dot;
   }
 
-  /** Calculate the shortest path between two nodes.
+  /** Calculate the shortest path between two nodes if it exists.
    *
-   * Returns a 'dijkstra_result' object */
+   * Returns a 'dijkstra_result' object.
+   * */
   const dijkstra_result shortest_path(std::shared_ptr<vertex> v1,
                                       std::shared_ptr<vertex> v2) {
 
@@ -220,21 +231,36 @@ public:
   size_t size() { return this->vertices.size(); }
 
 private:
-  /* Using vectors is probably not great for searching for a given vertex or
-   * edge to delete things, or start a search from from a vertex to another one.
-   * Perhaps vertices should have an ID, and we should store them in a tree,
-   * or a hash-map or something like that. Has to be able to cope with vertexs
-   * being removed though.
-   * We could do a whole adjacency matrix thing with enough time, and no need to
-   * delete verticies. Optimise later maybe.
-   */
-  std::vector<std::shared_ptr<vertex>> vertices;
-  std::vector<std::shared_ptr<edge>> edges;
+
+  std::vector<std::shared_ptr<vertex>> vertices; /** <Using vectors is probably 
+                                                  not great for searching for 
+                                                  a given vertex or edge to 
+                                                  delete things, or start a 
+                                                  search from from a vertex 
+                                                  to another one.
+                                                  Perhaps vertices should have 
+                                                  an ID, and we could store them in a tree,
+                                                  or a hash-map or something 
+                                                  like that. 
+                                                  We could do a whole adjacency 
+                                                  matrix thing with enough time, 
+                                                  and no need to delete verticies. 
+                                                  Optimise later maybe.
+                                                  */
+
+  std::vector<std::shared_ptr<edge>> edges; 
 
   std::string dot;
 
-  int idMax = 0; /** The current max ID number */
+  int idMax = 0; /**<The current max ID number */
 
+  /** Find the next vertex in a dijkstra search.
+   *
+   * Takes the current vertex, the source, destination and the visited nodes.
+   * Will backtrack if can't go forward from the current node.
+   *
+   * Returns a shared_pointer to the next vertex, which can be nullptr
+   */
   std::shared_ptr<vertex>
   find_next_vertex(std::shared_ptr<vertex> current_vertex,
                    std::shared_ptr<vertex> v2, std::shared_ptr<vertex> v1,

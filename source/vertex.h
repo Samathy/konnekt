@@ -18,6 +18,7 @@ class vertex {
 public:
   vertex() { this->edges = {}, this->labels = {}; }
 
+  /** Construct an edge with an ID */
   vertex(int id) {
     this->id = id;
     this->edges = {}, this->labels = {};
@@ -66,6 +67,12 @@ public:
     return false;
   }
 
+  /** Attach an edge to this vertex. 
+   *
+   * Does not construct edges!
+   * Only takes an edge which should already
+   * have been given a pointer to this vertex 
+   * */
   void addEdge(std::shared_ptr<edge> e) { this->edges.push_back(e); }
 
   /** Get all labels attached to this vertex */
@@ -83,6 +90,9 @@ public:
     return ss.str();
   }
 
+  /** Returns the number of edges attached to this vertex
+   * Returns size_t
+   * */
   size_t countEdges() { return this->edges.size(); }
 
   const std::vector<std::shared_ptr<edge>> getEdges() const {
@@ -92,12 +102,16 @@ public:
     return this->edges;
   }
 
+  /** Set the visited flag to true. Only used in shortest-path searches */
   void dijkstraSetVisited() { this->visited = true; }
 
+  /** Get the visited flag. Only used in shortest-path searches */
   bool dijkstraGetVisited() { return this->visited; }
 
+  /** Set distance value. Only used in shortest-path searches */
   void dijkstraSetDistance(int distance) { this->distance = distance; }
 
+  /** Get distance distance value. Only used in shortest-path searches */
   const int dijkstraGetDistance() { return this->distance; }
 
   /** Reset shortest-path related variables back to defaults.
