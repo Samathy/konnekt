@@ -9,6 +9,14 @@ Libraries used are listed in the conanfile.
 
 Documentation is available in the docs directory.
 
+Konnect is a C++17 application built and tested with CMake and GCC on Linux.
+
+clang-format is used with it's default settings for formatting.
+
+Libraries used are listed in the conanfile.
+
+Documentation is available in the docs directory.
+
 ## Building the executable
 
 ### Prerequisits
@@ -74,5 +82,3 @@ Konnekt can ingest graphs in a json format that looks like the following:
     ]
 }
 ```
-
-Vertices do not have to have 
