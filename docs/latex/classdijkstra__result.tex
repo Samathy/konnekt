@@ -1,0 +1,79 @@
+\hypertarget{classdijkstra__result}{}\doxysection{dijkstra\+\_\+result Class Reference}
+\label{classdijkstra__result}\index{dijkstra\_result@{dijkstra\_result}}
+
+
+{\ttfamily \#include $<$graph.\+h$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+std\+::vector$<$ std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classedge}{edge}} $>$ $>$ \mbox{\hyperlink{classdijkstra__result_a8ec81f56d9d1b154d3915bb74c9adcde}{fill\+Edges}} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classvertex}{vertex}} $>$ \mbox{\hyperlink{classdijkstra__result_a93732061d331396669f7a4afca9b26dc}{v1}}
+\item 
+std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classvertex}{vertex}} $>$ \mbox{\hyperlink{classdijkstra__result_aaccbc4e0bff41f674471de349eedefb8}{v2}}
+\item 
+std\+::vector$<$ std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classvertex}{vertex}} $>$ $>$ \mbox{\hyperlink{classdijkstra__result_ad44c541fe6c22387ca16b06c2154cd7e}{vertices}}
+\item 
+std\+::vector$<$ std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classedge}{edge}} $>$ $>$ \mbox{\hyperlink{classdijkstra__result_a25958e7a2a4b1a2ca438c3d1b6360026}{edges}}
+\item 
+bool \mbox{\hyperlink{classdijkstra__result_a53e8fea7825527014dda7b819f736da7}{path\+\_\+exists}} = false
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Class containing the results of a shortest-\/path check.
+
+Note\+: The \textquotesingle{}edges\textquotesingle{} member is only filled if \mbox{\hyperlink{classdijkstra__result_a8ec81f56d9d1b154d3915bb74c9adcde}{dijkstra\+\_\+result.\+fill\+Edges()}} is called. 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classdijkstra__result_a8ec81f56d9d1b154d3915bb74c9adcde}\label{classdijkstra__result_a8ec81f56d9d1b154d3915bb74c9adcde}} 
+\index{dijkstra\_result@{dijkstra\_result}!fillEdges@{fillEdges}}
+\index{fillEdges@{fillEdges}!dijkstra\_result@{dijkstra\_result}}
+\doxysubsubsection{\texorpdfstring{fillEdges()}{fillEdges()}}
+{\footnotesize\ttfamily std\+::vector$<$std\+::shared\+\_\+ptr$<$\mbox{\hyperlink{classedge}{edge}}$>$ $>$ dijkstra\+\_\+result\+::fill\+Edges (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Traceback the edges. {\itshape N\+OT I\+M\+P\+L\+E\+M\+E\+N\+T\+ED} ~\newline
+
+
+This could take time and might not be a very useful operation to do all at once. You probably just want to do it lazily. 
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{classdijkstra__result_a25958e7a2a4b1a2ca438c3d1b6360026}\label{classdijkstra__result_a25958e7a2a4b1a2ca438c3d1b6360026}} 
+\index{dijkstra\_result@{dijkstra\_result}!edges@{edges}}
+\index{edges@{edges}!dijkstra\_result@{dijkstra\_result}}
+\doxysubsubsection{\texorpdfstring{edges}{edges}}
+{\footnotesize\ttfamily std\+::vector$<$std\+::shared\+\_\+ptr$<$\mbox{\hyperlink{classedge}{edge}}$>$ $>$ dijkstra\+\_\+result\+::edges}
+
+\mbox{\Hypertarget{classdijkstra__result_a53e8fea7825527014dda7b819f736da7}\label{classdijkstra__result_a53e8fea7825527014dda7b819f736da7}} 
+\index{dijkstra\_result@{dijkstra\_result}!path\_exists@{path\_exists}}
+\index{path\_exists@{path\_exists}!dijkstra\_result@{dijkstra\_result}}
+\doxysubsubsection{\texorpdfstring{path\_exists}{path\_exists}}
+{\footnotesize\ttfamily bool dijkstra\+\_\+result\+::path\+\_\+exists = false}
+
+True if path exists between source and dest. False if no path exists \mbox{\Hypertarget{classdijkstra__result_a93732061d331396669f7a4afca9b26dc}\label{classdijkstra__result_a93732061d331396669f7a4afca9b26dc}} 
+\index{dijkstra\_result@{dijkstra\_result}!v1@{v1}}
+\index{v1@{v1}!dijkstra\_result@{dijkstra\_result}}
+\doxysubsubsection{\texorpdfstring{v1}{v1}}
+{\footnotesize\ttfamily std\+::shared\+\_\+ptr$<$\mbox{\hyperlink{classvertex}{vertex}}$>$ dijkstra\+\_\+result\+::v1}
+
+\mbox{\Hypertarget{classdijkstra__result_aaccbc4e0bff41f674471de349eedefb8}\label{classdijkstra__result_aaccbc4e0bff41f674471de349eedefb8}} 
+\index{dijkstra\_result@{dijkstra\_result}!v2@{v2}}
+\index{v2@{v2}!dijkstra\_result@{dijkstra\_result}}
+\doxysubsubsection{\texorpdfstring{v2}{v2}}
+{\footnotesize\ttfamily std\+::shared\+\_\+ptr$<$\mbox{\hyperlink{classvertex}{vertex}}$>$ dijkstra\+\_\+result\+::v2}
+
+Source vertex \mbox{\Hypertarget{classdijkstra__result_ad44c541fe6c22387ca16b06c2154cd7e}\label{classdijkstra__result_ad44c541fe6c22387ca16b06c2154cd7e}} 
+\index{dijkstra\_result@{dijkstra\_result}!vertices@{vertices}}
+\index{vertices@{vertices}!dijkstra\_result@{dijkstra\_result}}
+\doxysubsubsection{\texorpdfstring{vertices}{vertices}}
+{\footnotesize\ttfamily std\+::vector$<$std\+::shared\+\_\+ptr$<$\mbox{\hyperlink{classvertex}{vertex}}$>$ $>$ dijkstra\+\_\+result\+::vertices}
+
+Destination vertex 
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+source/\mbox{\hyperlink{graph_8h}{graph.\+h}}\end{DoxyCompactItemize}

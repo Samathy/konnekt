@@ -1,0 +1,171 @@
+\hypertarget{classvertex}{}\doxysection{vertex Class Reference}
+\label{classvertex}\index{vertex@{vertex}}
+
+
+{\ttfamily \#include $<$vertex.\+h$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classvertex_ae32be8790fc66fcc4898cf794f915da0}{vertex}} ()
+\item 
+\mbox{\hyperlink{classvertex_a58fbd52efa18ade88ad49f7a50d89ee3}{vertex}} (int id)
+\item 
+\mbox{\hyperlink{classvertex_aad3cc45980d1ffa0e31f9390845aad3a}{vertex}} (std\+::string label)
+\item 
+\mbox{\hyperlink{classvertex_af048e2cceea62727a18de7f971f1876f}{vertex}} (std\+::vector$<$ std\+::string $>$ labels)
+\item 
+void \mbox{\hyperlink{classvertex_af0cdfff86af8f9ddc0e40dff96133471}{add\+Label}} (const std\+::string label)
+\item 
+bool \mbox{\hyperlink{classvertex_aa93bb010a6fe824fbffab2868b2f1656}{remove\+Label}} (const std\+::string label)
+\item 
+bool \mbox{\hyperlink{classvertex_a6295c56d346be611af1876aa3b47ec5d}{has\+Label}} (const std\+::string to\+Find)
+\item 
+void \mbox{\hyperlink{classvertex_ae80b5c4107bff1ad2d6dd8838b3fb422}{add\+Edge}} (std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classedge}{edge}} $>$ e)
+\item 
+const std\+::vector$<$ std\+::string $>$ \mbox{\hyperlink{classvertex_afcfc6128f71b95d1e9a23435f04f67ed}{get\+Labels}} ()
+\item 
+const int \mbox{\hyperlink{classvertex_a16e74bddc6307f25b38bdafecf77644a}{get\+ID}} ()
+\item 
+const std\+::string \mbox{\hyperlink{classvertex_a6e52443cd230bdc9a54eb65c92fa98a5}{get\+Labels\+As\+String}} ()
+\item 
+size\+\_\+t \mbox{\hyperlink{classvertex_a70c0f2bbf706965b5d5f2578e5d0869b}{count\+Edges}} ()
+\item 
+const std\+::vector$<$ std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classedge}{edge}} $>$ $>$ \mbox{\hyperlink{classvertex_a38ca110d70afc9ec65b50862d1bd66a4}{get\+Edges}} () const
+\item 
+void \mbox{\hyperlink{classvertex_ae95dfcf78ad0b2d9cd2ff887936325cb}{dijkstra\+Set\+Visited}} ()
+\item 
+bool \mbox{\hyperlink{classvertex_a65a9f18ae5565a8144ee380fa3ed2936}{dijkstra\+Get\+Visited}} ()
+\item 
+void \mbox{\hyperlink{classvertex_a85c1542b1f0088a959219931867f82f9}{dijkstra\+Set\+Distance}} (int distance)
+\item 
+const int \mbox{\hyperlink{classvertex_a87f0f466f230cc6e6d7ba826fa0f30b3}{dijkstra\+Get\+Distance}} ()
+\item 
+void \mbox{\hyperlink{classvertex_a016fe49a30d37fbc0837b7ec3af31087}{dijkstra\+Reset}} ()
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Vertex class Represents a vertex/node on the graph. Nodes may have one or more labels, which can be set, removed and retrieved. Vertex\textquotesingle{}s also contain a list of edges connected to other vertexes.
+
+A vertex is responsible for deleting it\textquotesingle{}s own reference to an edge. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classvertex_ae32be8790fc66fcc4898cf794f915da0}\label{classvertex_ae32be8790fc66fcc4898cf794f915da0}} 
+\index{vertex@{vertex}!vertex@{vertex}}
+\index{vertex@{vertex}!vertex@{vertex}}
+\doxysubsubsection{\texorpdfstring{vertex()}{vertex()}\hspace{0.1cm}{\footnotesize\ttfamily [1/4]}}
+{\footnotesize\ttfamily vertex\+::vertex (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{classvertex_a58fbd52efa18ade88ad49f7a50d89ee3}\label{classvertex_a58fbd52efa18ade88ad49f7a50d89ee3}} 
+\index{vertex@{vertex}!vertex@{vertex}}
+\index{vertex@{vertex}!vertex@{vertex}}
+\doxysubsubsection{\texorpdfstring{vertex()}{vertex()}\hspace{0.1cm}{\footnotesize\ttfamily [2/4]}}
+{\footnotesize\ttfamily vertex\+::vertex (\begin{DoxyParamCaption}\item[{int}]{id }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Construct an edge with an ID \mbox{\Hypertarget{classvertex_aad3cc45980d1ffa0e31f9390845aad3a}\label{classvertex_aad3cc45980d1ffa0e31f9390845aad3a}} 
+\index{vertex@{vertex}!vertex@{vertex}}
+\index{vertex@{vertex}!vertex@{vertex}}
+\doxysubsubsection{\texorpdfstring{vertex()}{vertex()}\hspace{0.1cm}{\footnotesize\ttfamily [3/4]}}
+{\footnotesize\ttfamily vertex\+::vertex (\begin{DoxyParamCaption}\item[{std\+::string}]{label }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Construct with one label \mbox{\Hypertarget{classvertex_af048e2cceea62727a18de7f971f1876f}\label{classvertex_af048e2cceea62727a18de7f971f1876f}} 
+\index{vertex@{vertex}!vertex@{vertex}}
+\index{vertex@{vertex}!vertex@{vertex}}
+\doxysubsubsection{\texorpdfstring{vertex()}{vertex()}\hspace{0.1cm}{\footnotesize\ttfamily [4/4]}}
+{\footnotesize\ttfamily vertex\+::vertex (\begin{DoxyParamCaption}\item[{std\+::vector$<$ std\+::string $>$}]{labels }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Construct with many labels 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classvertex_ae80b5c4107bff1ad2d6dd8838b3fb422}\label{classvertex_ae80b5c4107bff1ad2d6dd8838b3fb422}} 
+\index{vertex@{vertex}!addEdge@{addEdge}}
+\index{addEdge@{addEdge}!vertex@{vertex}}
+\doxysubsubsection{\texorpdfstring{addEdge()}{addEdge()}}
+{\footnotesize\ttfamily void vertex\+::add\+Edge (\begin{DoxyParamCaption}\item[{std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classedge}{edge}} $>$}]{e }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Attach an edge to this vertex.
+
+Does not construct edges! Only takes an edge which should already have been given a pointer to this vertex \mbox{\Hypertarget{classvertex_af0cdfff86af8f9ddc0e40dff96133471}\label{classvertex_af0cdfff86af8f9ddc0e40dff96133471}} 
+\index{vertex@{vertex}!addLabel@{addLabel}}
+\index{addLabel@{addLabel}!vertex@{vertex}}
+\doxysubsubsection{\texorpdfstring{addLabel()}{addLabel()}}
+{\footnotesize\ttfamily void vertex\+::add\+Label (\begin{DoxyParamCaption}\item[{const std\+::string}]{label }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Add a label to this vertex. Vertices can have many labels \mbox{\Hypertarget{classvertex_a70c0f2bbf706965b5d5f2578e5d0869b}\label{classvertex_a70c0f2bbf706965b5d5f2578e5d0869b}} 
+\index{vertex@{vertex}!countEdges@{countEdges}}
+\index{countEdges@{countEdges}!vertex@{vertex}}
+\doxysubsubsection{\texorpdfstring{countEdges()}{countEdges()}}
+{\footnotesize\ttfamily size\+\_\+t vertex\+::count\+Edges (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Returns the number of edges attached to this vertex Returns size\+\_\+t \mbox{\Hypertarget{classvertex_a87f0f466f230cc6e6d7ba826fa0f30b3}\label{classvertex_a87f0f466f230cc6e6d7ba826fa0f30b3}} 
+\index{vertex@{vertex}!dijkstraGetDistance@{dijkstraGetDistance}}
+\index{dijkstraGetDistance@{dijkstraGetDistance}!vertex@{vertex}}
+\doxysubsubsection{\texorpdfstring{dijkstraGetDistance()}{dijkstraGetDistance()}}
+{\footnotesize\ttfamily const int vertex\+::dijkstra\+Get\+Distance (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Get distance distance value. Only used in shortest-\/path searches \mbox{\Hypertarget{classvertex_a65a9f18ae5565a8144ee380fa3ed2936}\label{classvertex_a65a9f18ae5565a8144ee380fa3ed2936}} 
+\index{vertex@{vertex}!dijkstraGetVisited@{dijkstraGetVisited}}
+\index{dijkstraGetVisited@{dijkstraGetVisited}!vertex@{vertex}}
+\doxysubsubsection{\texorpdfstring{dijkstraGetVisited()}{dijkstraGetVisited()}}
+{\footnotesize\ttfamily bool vertex\+::dijkstra\+Get\+Visited (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Get the visited flag. Only used in shortest-\/path searches \mbox{\Hypertarget{classvertex_a016fe49a30d37fbc0837b7ec3af31087}\label{classvertex_a016fe49a30d37fbc0837b7ec3af31087}} 
+\index{vertex@{vertex}!dijkstraReset@{dijkstraReset}}
+\index{dijkstraReset@{dijkstraReset}!vertex@{vertex}}
+\doxysubsubsection{\texorpdfstring{dijkstraReset()}{dijkstraReset()}}
+{\footnotesize\ttfamily void vertex\+::dijkstra\+Reset (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Reset shortest-\/path related variables back to defaults. \mbox{\Hypertarget{classvertex_a85c1542b1f0088a959219931867f82f9}\label{classvertex_a85c1542b1f0088a959219931867f82f9}} 
+\index{vertex@{vertex}!dijkstraSetDistance@{dijkstraSetDistance}}
+\index{dijkstraSetDistance@{dijkstraSetDistance}!vertex@{vertex}}
+\doxysubsubsection{\texorpdfstring{dijkstraSetDistance()}{dijkstraSetDistance()}}
+{\footnotesize\ttfamily void vertex\+::dijkstra\+Set\+Distance (\begin{DoxyParamCaption}\item[{int}]{distance }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Set distance value. Only used in shortest-\/path searches \mbox{\Hypertarget{classvertex_ae95dfcf78ad0b2d9cd2ff887936325cb}\label{classvertex_ae95dfcf78ad0b2d9cd2ff887936325cb}} 
+\index{vertex@{vertex}!dijkstraSetVisited@{dijkstraSetVisited}}
+\index{dijkstraSetVisited@{dijkstraSetVisited}!vertex@{vertex}}
+\doxysubsubsection{\texorpdfstring{dijkstraSetVisited()}{dijkstraSetVisited()}}
+{\footnotesize\ttfamily void vertex\+::dijkstra\+Set\+Visited (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Set the visited flag to true. Only used in shortest-\/path searches \mbox{\Hypertarget{classvertex_a38ca110d70afc9ec65b50862d1bd66a4}\label{classvertex_a38ca110d70afc9ec65b50862d1bd66a4}} 
+\index{vertex@{vertex}!getEdges@{getEdges}}
+\index{getEdges@{getEdges}!vertex@{vertex}}
+\doxysubsubsection{\texorpdfstring{getEdges()}{getEdges()}}
+{\footnotesize\ttfamily const std\+::vector$<$std\+::shared\+\_\+ptr$<$\mbox{\hyperlink{classedge}{edge}}$>$ $>$ vertex\+::get\+Edges (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{classvertex_a16e74bddc6307f25b38bdafecf77644a}\label{classvertex_a16e74bddc6307f25b38bdafecf77644a}} 
+\index{vertex@{vertex}!getID@{getID}}
+\index{getID@{getID}!vertex@{vertex}}
+\doxysubsubsection{\texorpdfstring{getID()}{getID()}}
+{\footnotesize\ttfamily const int vertex\+::get\+ID (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{classvertex_afcfc6128f71b95d1e9a23435f04f67ed}\label{classvertex_afcfc6128f71b95d1e9a23435f04f67ed}} 
+\index{vertex@{vertex}!getLabels@{getLabels}}
+\index{getLabels@{getLabels}!vertex@{vertex}}
+\doxysubsubsection{\texorpdfstring{getLabels()}{getLabels()}}
+{\footnotesize\ttfamily const std\+::vector$<$std\+::string$>$ vertex\+::get\+Labels (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Get all labels attached to this vertex \mbox{\Hypertarget{classvertex_a6e52443cd230bdc9a54eb65c92fa98a5}\label{classvertex_a6e52443cd230bdc9a54eb65c92fa98a5}} 
+\index{vertex@{vertex}!getLabelsAsString@{getLabelsAsString}}
+\index{getLabelsAsString@{getLabelsAsString}!vertex@{vertex}}
+\doxysubsubsection{\texorpdfstring{getLabelsAsString()}{getLabelsAsString()}}
+{\footnotesize\ttfamily const std\+::string vertex\+::get\+Labels\+As\+String (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Return this vertex\textquotesingle{}s labels as a string \mbox{\Hypertarget{classvertex_a6295c56d346be611af1876aa3b47ec5d}\label{classvertex_a6295c56d346be611af1876aa3b47ec5d}} 
+\index{vertex@{vertex}!hasLabel@{hasLabel}}
+\index{hasLabel@{hasLabel}!vertex@{vertex}}
+\doxysubsubsection{\texorpdfstring{hasLabel()}{hasLabel()}}
+{\footnotesize\ttfamily bool vertex\+::has\+Label (\begin{DoxyParamCaption}\item[{const std\+::string}]{to\+Find }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Check if this vertex has a given label Returns true if found Returns false if non-\/existant \mbox{\Hypertarget{classvertex_aa93bb010a6fe824fbffab2868b2f1656}\label{classvertex_aa93bb010a6fe824fbffab2868b2f1656}} 
+\index{vertex@{vertex}!removeLabel@{removeLabel}}
+\index{removeLabel@{removeLabel}!vertex@{vertex}}
+\doxysubsubsection{\texorpdfstring{removeLabel()}{removeLabel()}}
+{\footnotesize\ttfamily bool vertex\+::remove\+Label (\begin{DoxyParamCaption}\item[{const std\+::string}]{label }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Remove given label from this vertex. Return true if successful. Return false if not found 
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+source/\mbox{\hyperlink{vertex_8h}{vertex.\+h}}\end{DoxyCompactItemize}

@@ -32,5 +32,11 @@ Testing is implemented with [Catch2](https://github.com/catchorg/catch2)
  2) cmake --build .
  3) ctest
 
+## Documentation
+Documentation is available in the docs folder.
+
+Documentation can be generated with doxygen:
+    $ doxygen Doxyfile
+
 ## Usage
 

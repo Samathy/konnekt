@@ -1,0 +1,55 @@
+\hypertarget{classedge}{}\doxysection{edge Class Reference}
+\label{classedge}\index{edge@{edge}}
+
+
+{\ttfamily \#include $<$edge.\+h$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classedge_acca430e4c922e17e4b6d73c349057197}{edge}} (std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classvertex}{vertex}} $>$ v1, std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classvertex}{vertex}} $>$ v2)
+\item 
+const std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classvertex}{vertex}} $>$ \mbox{\hyperlink{classedge_af7a6cd3252a972c788c9172f52ab4d29}{get\+V1}} ()
+\item 
+const std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classvertex}{vertex}} $>$ \mbox{\hyperlink{classedge_a1af7566f9d0d2b0465bfc3070cfe19ee}{get\+V2}} ()
+\item 
+const std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classvertex}{vertex}} $>$ \mbox{\hyperlink{classedge_a4206c41b04853ab278682d04834b7429}{get\+Other}} (std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classvertex}{vertex}} $>$ v)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Edge class Represents an edge of the graph. Basically only contains pointers to the edge\textquotesingle{}s connected vertices. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classedge_acca430e4c922e17e4b6d73c349057197}\label{classedge_acca430e4c922e17e4b6d73c349057197}} 
+\index{edge@{edge}!edge@{edge}}
+\index{edge@{edge}!edge@{edge}}
+\doxysubsubsection{\texorpdfstring{edge()}{edge()}}
+{\footnotesize\ttfamily edge\+::edge (\begin{DoxyParamCaption}\item[{std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classvertex}{vertex}} $>$}]{v1,  }\item[{std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classvertex}{vertex}} $>$}]{v2 }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Construct an edge. Requires the two attached vertices 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classedge_a4206c41b04853ab278682d04834b7429}\label{classedge_a4206c41b04853ab278682d04834b7429}} 
+\index{edge@{edge}!getOther@{getOther}}
+\index{getOther@{getOther}!edge@{edge}}
+\doxysubsubsection{\texorpdfstring{getOther()}{getOther()}}
+{\footnotesize\ttfamily const std\+::shared\+\_\+ptr$<$\mbox{\hyperlink{classvertex}{vertex}}$>$ edge\+::get\+Other (\begin{DoxyParamCaption}\item[{std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classvertex}{vertex}} $>$}]{v }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Which ever vertex you pass it, you get the other one. Or we throw. \mbox{\Hypertarget{classedge_af7a6cd3252a972c788c9172f52ab4d29}\label{classedge_af7a6cd3252a972c788c9172f52ab4d29}} 
+\index{edge@{edge}!getV1@{getV1}}
+\index{getV1@{getV1}!edge@{edge}}
+\doxysubsubsection{\texorpdfstring{getV1()}{getV1()}}
+{\footnotesize\ttfamily const std\+::shared\+\_\+ptr$<$\mbox{\hyperlink{classvertex}{vertex}}$>$ edge\+::get\+V1 (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Get the first vertex Note\+: ideally this would be a property, instead of a function. \mbox{\Hypertarget{classedge_a1af7566f9d0d2b0465bfc3070cfe19ee}\label{classedge_a1af7566f9d0d2b0465bfc3070cfe19ee}} 
+\index{edge@{edge}!getV2@{getV2}}
+\index{getV2@{getV2}!edge@{edge}}
+\doxysubsubsection{\texorpdfstring{getV2()}{getV2()}}
+{\footnotesize\ttfamily const std\+::shared\+\_\+ptr$<$\mbox{\hyperlink{classvertex}{vertex}}$>$ edge\+::get\+V2 (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Get the second vertex Note\+: ideally this would be a property, instead of a function. 
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+source/\mbox{\hyperlink{edge_8h}{edge.\+h}}\end{DoxyCompactItemize}

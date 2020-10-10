@@ -1,0 +1,33 @@
+\hypertarget{ingest_8h}{}\doxysection{source/ingest.h File Reference}
+\label{ingest_8h}\index{source/ingest.h@{source/ingest.h}}
+{\ttfamily \#include $<$string$>$}\newline
+{\ttfamily \#include $<$fstream$>$}\newline
+{\ttfamily \#include $<$iostream$>$}\newline
+{\ttfamily \#include $<$memory$>$}\newline
+{\ttfamily \#include \char`\"{}json/json.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}graph.\+h\char`\"{}}\newline
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+Json\+::\+Value \mbox{\hyperlink{ingest_8h_a5e554648dd43f304f0394eb6fa728cb6}{parse\+Json}} (std\+::string filename)
+\item 
+std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classgraph}{graph}} $>$ \mbox{\hyperlink{ingest_8h_a918a88a8d18108e8654010524f91486d}{ingest\+\_\+json}} (std\+::string filename)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{ingest_8h_a918a88a8d18108e8654010524f91486d}\label{ingest_8h_a918a88a8d18108e8654010524f91486d}} 
+\index{ingest.h@{ingest.h}!ingest\_json@{ingest\_json}}
+\index{ingest\_json@{ingest\_json}!ingest.h@{ingest.h}}
+\doxysubsubsection{\texorpdfstring{ingest\_json()}{ingest\_json()}}
+{\footnotesize\ttfamily std\+::unique\+\_\+ptr$<$\mbox{\hyperlink{classgraph}{graph}}$>$ ingest\+\_\+json (\begin{DoxyParamCaption}\item[{std\+::string}]{filename }\end{DoxyParamCaption})}
+
+Parse a json description of our graph and turn it into an in-\/memory representation.
+
+Returns a unique\+\_\+ptr to a new graph object. \mbox{\Hypertarget{ingest_8h_a5e554648dd43f304f0394eb6fa728cb6}\label{ingest_8h_a5e554648dd43f304f0394eb6fa728cb6}} 
+\index{ingest.h@{ingest.h}!parseJson@{parseJson}}
+\index{parseJson@{parseJson}!ingest.h@{ingest.h}}
+\doxysubsubsection{\texorpdfstring{parseJson()}{parseJson()}}
+{\footnotesize\ttfamily Json\+::\+Value parse\+Json (\begin{DoxyParamCaption}\item[{std\+::string}]{filename }\end{DoxyParamCaption})}
+
+Contains ingest functions to create a graph from input. Parse a json input file and return a parsed Json\+::\+Value object 

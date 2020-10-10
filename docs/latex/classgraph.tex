@@ -1,0 +1,91 @@
+\hypertarget{classgraph}{}\doxysection{graph Class Reference}
+\label{classgraph}\index{graph@{graph}}
+
+
+{\ttfamily \#include $<$graph.\+h$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classgraph_a6aaa56b4528d2fdb8f0ecd97e04f6651}{graph}} ()
+\item 
+std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classvertex}{vertex}} $>$ \mbox{\hyperlink{classgraph_a286c46ab9eae7265e2dc1fe8f7dc7ad7}{create\+Vertex}} ()
+\item 
+std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classedge}{edge}} $>$ \mbox{\hyperlink{classgraph_a30f7ae092c5d659a1b3ff4eb6257e591}{create\+Edge}} (std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classvertex}{vertex}} $>$ v1, std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classvertex}{vertex}} $>$ v2)
+\item 
+std\+::vector$<$ std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classvertex}{vertex}} $>$ $>$ \mbox{\hyperlink{classgraph_ad3abdf713cf36c3fe714298b6857406c}{find\+Vertex}} (std\+::string label)
+\item 
+std\+::vector$<$ std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classedge}{edge}} $>$ $>$ \mbox{\hyperlink{classgraph_aeb37361e3f71fdefa59ed72671e3d4e0}{find\+Edges}} (std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classvertex}{vertex}} $>$ v1, std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classvertex}{vertex}} $>$ v2)
+\item 
+std\+::string\+\_\+view \mbox{\hyperlink{classgraph_a62f921ddab058f826636fa0796ff8904}{get\+Dot}} ()
+\item 
+const \mbox{\hyperlink{classdijkstra__result}{dijkstra\+\_\+result}} \mbox{\hyperlink{classgraph_a42c270dbc63daf15c7e6487dd787ee0a}{shortest\+\_\+path}} (std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classvertex}{vertex}} $>$ v1, std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classvertex}{vertex}} $>$ v2)
+\item 
+size\+\_\+t \mbox{\hyperlink{classgraph_a380b63b916e6aa72db8ac48f93799b7c}{size}} ()
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Represents a graph in memory. Contains nodes and edges. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classgraph_a6aaa56b4528d2fdb8f0ecd97e04f6651}\label{classgraph_a6aaa56b4528d2fdb8f0ecd97e04f6651}} 
+\index{graph@{graph}!graph@{graph}}
+\index{graph@{graph}!graph@{graph}}
+\doxysubsubsection{\texorpdfstring{graph()}{graph()}}
+{\footnotesize\ttfamily graph\+::graph (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classgraph_a30f7ae092c5d659a1b3ff4eb6257e591}\label{classgraph_a30f7ae092c5d659a1b3ff4eb6257e591}} 
+\index{graph@{graph}!createEdge@{createEdge}}
+\index{createEdge@{createEdge}!graph@{graph}}
+\doxysubsubsection{\texorpdfstring{createEdge()}{createEdge()}}
+{\footnotesize\ttfamily std\+::shared\+\_\+ptr$<$\mbox{\hyperlink{classedge}{edge}}$>$ graph\+::create\+Edge (\begin{DoxyParamCaption}\item[{std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classvertex}{vertex}} $>$}]{v1,  }\item[{std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classvertex}{vertex}} $>$}]{v2 }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Create a new edge connected to given vertices Returns\+: A shared pointer to the new edge \mbox{\Hypertarget{classgraph_a286c46ab9eae7265e2dc1fe8f7dc7ad7}\label{classgraph_a286c46ab9eae7265e2dc1fe8f7dc7ad7}} 
+\index{graph@{graph}!createVertex@{createVertex}}
+\index{createVertex@{createVertex}!graph@{graph}}
+\doxysubsubsection{\texorpdfstring{createVertex()}{createVertex()}}
+{\footnotesize\ttfamily std\+::shared\+\_\+ptr$<$\mbox{\hyperlink{classvertex}{vertex}}$>$ graph\+::create\+Vertex (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Create a new vertex in the graph Returns\+: A shared pointer to the new vertex object \mbox{\Hypertarget{classgraph_aeb37361e3f71fdefa59ed72671e3d4e0}\label{classgraph_aeb37361e3f71fdefa59ed72671e3d4e0}} 
+\index{graph@{graph}!findEdges@{findEdges}}
+\index{findEdges@{findEdges}!graph@{graph}}
+\doxysubsubsection{\texorpdfstring{findEdges()}{findEdges()}}
+{\footnotesize\ttfamily std\+::vector$<$std\+::shared\+\_\+ptr$<$\mbox{\hyperlink{classedge}{edge}}$>$ $>$ graph\+::find\+Edges (\begin{DoxyParamCaption}\item[{std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classvertex}{vertex}} $>$}]{v1,  }\item[{std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classvertex}{vertex}} $>$}]{v2 }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Find an edge between two given vertices Returns a list of edges that exist between two verticies. It is unlikely that there will be more than one edge.
+
+Probably slowish with lots of edges because linear search \+:( \mbox{\Hypertarget{classgraph_ad3abdf713cf36c3fe714298b6857406c}\label{classgraph_ad3abdf713cf36c3fe714298b6857406c}} 
+\index{graph@{graph}!findVertex@{findVertex}}
+\index{findVertex@{findVertex}!graph@{graph}}
+\doxysubsubsection{\texorpdfstring{findVertex()}{findVertex()}}
+{\footnotesize\ttfamily std\+::vector$<$std\+::shared\+\_\+ptr$<$\mbox{\hyperlink{classvertex}{vertex}}$>$ $>$ graph\+::find\+Vertex (\begin{DoxyParamCaption}\item[{std\+::string}]{label }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Find a vertex by label. Returns\+: A list of verticies with the given label. If none are found, the list is empty. \mbox{\Hypertarget{classgraph_a62f921ddab058f826636fa0796ff8904}\label{classgraph_a62f921ddab058f826636fa0796ff8904}} 
+\index{graph@{graph}!getDot@{getDot}}
+\index{getDot@{getDot}!graph@{graph}}
+\doxysubsubsection{\texorpdfstring{getDot()}{getDot()}}
+{\footnotesize\ttfamily std\+::string\+\_\+view graph\+::get\+Dot (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Generates a dot/graphviz graph of the stored graph. This has to walk the graph, and can be very expensive on large graphs. \mbox{\Hypertarget{classgraph_a42c270dbc63daf15c7e6487dd787ee0a}\label{classgraph_a42c270dbc63daf15c7e6487dd787ee0a}} 
+\index{graph@{graph}!shortest\_path@{shortest\_path}}
+\index{shortest\_path@{shortest\_path}!graph@{graph}}
+\doxysubsubsection{\texorpdfstring{shortest\_path()}{shortest\_path()}}
+{\footnotesize\ttfamily const \mbox{\hyperlink{classdijkstra__result}{dijkstra\+\_\+result}} graph\+::shortest\+\_\+path (\begin{DoxyParamCaption}\item[{std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classvertex}{vertex}} $>$}]{v1,  }\item[{std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classvertex}{vertex}} $>$}]{v2 }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Calculate the shortest path between two nodes if it exists.
+
+Returns a \textquotesingle{}\mbox{\hyperlink{classdijkstra__result}{dijkstra\+\_\+result}}\textquotesingle{} object. \mbox{\Hypertarget{classgraph_a380b63b916e6aa72db8ac48f93799b7c}\label{classgraph_a380b63b916e6aa72db8ac48f93799b7c}} 
+\index{graph@{graph}!size@{size}}
+\index{size@{size}!graph@{graph}}
+\doxysubsubsection{\texorpdfstring{size()}{size()}}
+{\footnotesize\ttfamily size\+\_\+t graph\+::size (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+source/\mbox{\hyperlink{graph_8h}{graph.\+h}}\end{DoxyCompactItemize}
